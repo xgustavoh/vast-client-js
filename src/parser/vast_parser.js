@@ -241,9 +241,10 @@ export class VASTParser extends EventEmitter {
     if (
       !vastXml ||
       !vastXml.documentElement ||
-      vastXml.documentElement.nodeName !== 'VAST'
+      (vastXml.documentElement.nodeName !== 'VAST' &&
+        vastXml.documentElement.nodeName !== 'DAAST')
     ) {
-      throw new Error('Invalid VAST XMLDocument');
+      throw new Error('Invalid VAST/DAAST XMLDocument');
     }
 
     const ads = [];

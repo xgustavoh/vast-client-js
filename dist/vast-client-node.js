@@ -1615,8 +1615,8 @@ var VASTParser = function (_EventEmitter) {
           isRootVAST = _ref$isRootVAST === undefined ? false : _ref$isRootVAST;
 
       // check if is a valid VAST document
-      if (!vastXml || !vastXml.documentElement || vastXml.documentElement.nodeName !== 'VAST') {
-        throw new Error('Invalid VAST XMLDocument');
+      if (!vastXml || !vastXml.documentElement || vastXml.documentElement.nodeName !== 'VAST' && vastXml.documentElement.nodeName !== 'DAAST') {
+        throw new Error('Invalid VAST/DAAST XMLDocument');
       }
 
       var ads = [];
